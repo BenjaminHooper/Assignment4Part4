@@ -82,11 +82,12 @@ const balls = [];
 
 class EvilCircle extends Shape {
   constructor(x, y) {
-    super(x, y, 20, 20); // Hardcoded velX and velY
+    super(x, y, 20, 20); 
     this.size = 10;
     this.color = 'white';
-    this.exists = true; // EvilCircle always exists initially
-    
+    this.exists = true; 
+
+    //To control the movements 
     window.addEventListener("keydown", function(e) {
       switch (e.key) {
         case "a":
@@ -104,8 +105,8 @@ class EvilCircle extends Shape {
       }
     }.bind(this)); // Binding 'this' to the function
   }
-  // Event listener to control movement of EvilCircle
-
+  
+  
   draw() {
     ctx.beginPath();
     ctx.strokeStyle = this.color;
@@ -151,8 +152,7 @@ class EvilCircle extends Shape {
 while (balls.length < 25) {
   const size = random(10, 20);
   const ball = new Ball(
-    // ball position always drawn at least one ball width
-    // away from the edge of the canvas, to avoid drawing errors
+    // ball position always drawn at least one ball width away from the edge of the canvas, to avoid drawing errors
     random(0 + size, width - size),
     random(0 + size, height - size),
     random(-7, 7),
@@ -164,10 +164,12 @@ while (balls.length < 25) {
   balls.push(ball);
 }
 
-const ballCountDisplay = document.createElement('p'); // Create <p> element
-document.body.appendChild(ballCountDisplay); // Append to body
+const ballCountDisplay = document.createElement('p'); 
+//Append to body
+document.body.appendChild(ballCountDisplay); 
 
-let ballCount = balls.length; // Initial count of balls
+//Initial count of balls
+let ballCount = balls.length; 
 
 function updateBallCount(change) {
   ballCount += change;
